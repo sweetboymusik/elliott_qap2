@@ -2,7 +2,7 @@
  * Programming With JavaScript - QAP2
  *
  *      Name: Elliott Butt
- *      Date: March 17, 2024
+ *      Date: March 18, 2024
  */
 
 /*******************************************************************************
@@ -252,7 +252,7 @@ function toDateString(value) {
  ******************************************************************************/
 
 function normalizeCoord(value) {
-  // wasn't sure about the wording/objective of this one
+  // wasn't sure about the wording of this one
   // reached out for clarification but didn't hear back
   // assuming [] means the values are swapped
 

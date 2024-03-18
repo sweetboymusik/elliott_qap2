@@ -252,7 +252,7 @@ function toDateString(value) {
  ******************************************************************************/
 
 function normalizeCoord(value) {
-  // wasn't sure about the wording/objective of this one
+  // wasn't sure about the wording of this one
   // reached out for clarification but didn't hear back
   // assuming [] means the values are swapped
 

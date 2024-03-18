@@ -254,10 +254,18 @@ function toDateString(value) {
 function normalizeCoord(value) {
   // wasn't sure about the wording/objective of this one
   // reached out for clarification but didn't hear back
-  // did not account for the swapped values as I think that was the typo/mistake
+  // assuming [] means the values are swapped
 
   let rule = /(-?\d*?\.\d*)/g;
+  let swapped = /\[/g;
+
   let [lat, lng] = value.match(rule);
+
+  if (swapped.test(value)) {
+    let temp = lat;
+    lat = lng;
+    lng = temp;
+  }
 
   if (lat < -180 || lat > 180)
     throw new Error("lat must be between -180 and 180");
@@ -267,8 +275,11 @@ function normalizeCoord(value) {
   return `(${lat}, ${lng})`;
 }
 
-let coord1 = normalizeCoord("42.9755,-77.4369");
-let coord2 = normalizeCoord("[-77.4369, 45.9755]");
+// let coord1 = normalizeCoord("42.9755,-77.4369");
+// let coord2 = normalizeCoord("[-77.4369, 45.9755]");
+
+// console.log(coord1);
+// console.log(coord2);
 
 /*******************************************************************************
  * Problem 6: format any number of coordinates as a list in a string
@@ -311,10 +322,10 @@ function formatCoords(...values) {
   return result;
 }
 
-console.log(formatCoords("42.9755,-77.4369", "[-62.1234, 42.9755]"));
-console.log(
-  formatCoords("42.9755,-77.4369", "[-62.1234, 42.9755]", "300,-9000"),
-);
+// console.log(formatCoords("42.9755,-77.4369", "[-62.1234, 42.9755]"));
+// console.log(
+//   formatCoords("42.9755,-77.4369", "[-62.1234, 42.9755]", "300,-9000")
+// );
 
 /*******************************************************************************
  * Problem 7: determine MIME type from filename extension

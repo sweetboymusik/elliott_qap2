@@ -32,16 +32,16 @@ function snake(value) {
 
   let result = value
     .trim()
+    .replace(rule2, " ")
     .replace(rule1, "_")
-    .replace(rule2, "")
     .toLowerCase();
 
   return result;
 }
 
 // console.log(snake(" A bC  "));
-// console.log(snake("A   BC"));
-// console.log(snake(" A..  B   C "));
+console.log(snake("A.BC"));
+console.log(snake(" A..  B   C "));
 
 /*******************************************************************************
  * Problem 2: create an HTML <video> element for the given url.
